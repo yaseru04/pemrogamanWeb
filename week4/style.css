@@ -1,0 +1,19 @@
+.container{
+    width: 100%;
+}
+.wrapper{
+    width: 100%;
+    min-height: 100px;
+}
+.nav, .section{
+    float: left;
+}
+.nav{
+    width: 10%;
+}
+.section{
+    width: 80%;
+}
+.footer{
+    text-align: center;
+}
