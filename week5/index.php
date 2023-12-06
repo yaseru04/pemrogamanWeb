@@ -16,6 +16,24 @@
             ?>
         </div>
         <div>
+            <label for="nim">NIM</label>
+            <input type="nim" id="nim"name="nim">
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($_POST["nim"])) {
+                echo "<span style='color: red;'>NIM wajib diisi</span>";
+            }
+            ?>
+        </div>
+        <div>
+            <label for="prodi">Prodi</label>
+            <input type="prodi" id="prodi"name="prodi">
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($_POST["prodi"])) {
+                echo "<span style='color: red;'>Prodi wajib diisi</span>";
+            }
+            ?>
+        </div>
+        <div>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email">
             <?php
@@ -45,9 +63,10 @@
         $nama = $_POST["nama"];
         $email = $_POST["email"];
         $jenis_kelamin = $_POST["jenis_kelamin"];
-        $operasi = $_POST["operasi"];
+        $nim = $_POST["nim"];
+        $prodi = $_POST["prodi"];
 
-        if (empty($nama) || empty($email) || empty($jenis_kelamin)) {
+        if (empty($nama) || empty($email) || empty($nim) || empty($prodi)) {
             echo "<p>Harap isi semua field.</p>";
             exit;
         }else {
@@ -55,6 +74,8 @@
             echo "<p>Nama: " . $nama . "</p>";
             echo "<p>Email: " . $email . "</p>";
             echo "<p>Jenis Kelamin: " . $jenis_kelamin . "</p>";
+            echo "<p>NIM: " . $nim . "</p>";
+            echo "<p>Prodi: " . $prodi . "</p>";
         }
     }
     ?>
