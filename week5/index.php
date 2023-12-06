@@ -5,7 +5,7 @@
 </head>
 <body>
     <h2>Formulir Validasi</h2>
-    <form method="post" action="">
+    <form method="post" action="" >
         <div>
             <label for="nama">Nama:</label>
             <input type="text" id="nama" name="nama">
@@ -16,7 +16,7 @@
             ?>
         </div>
         <div>
-            <label for="nim">NIM</label>
+            <label for="nim">NIM:</label>
             <input type="nim" id="nim"name="nim">
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($_POST["nim"])) {
@@ -25,7 +25,7 @@
             ?>
         </div>
         <div>
-            <label for="prodi">Prodi</label>
+            <label for="prodi">Prodi:</label>
             <input type="prodi" id="prodi"name="prodi">
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($_POST["prodi"])) {
@@ -43,18 +43,22 @@
             ?>
         </div>
         <div>
-            <label for="jenis_kelamin">Jenis Kelamin:</label>
-            <input type="radio" id="laki_laki" name="jenis_kelamin" value="Laki-laki">
-            <label for="laki_laki">Laki-laki</label>
-            <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
-            <label for="perempuan">Perempuan</label>
+            <label for="alamat">Alamat:</label>
+            <input type="alamat" id="alamat" name="alamat">
             <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($_POST["jenis_kelamin"])) {
-                echo "<span style='color: red;'>Jenis Kelamin wajib dipilih</span>";
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($_POST["alamat"])) {
+                echo "<span style='color: red;'>Alamat wajib diisi</span>";
             }
             ?>
-        </div>
         <div>
+        <div>
+            <label for="no_hp">No_Hp:</label>
+            <input type="no_hp" id="no_hp" name="no_hp">
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($_POST["no_hp"])) {
+                echo "<span style='color: red;'>No Hp wajib diisi</span>";
+            }
+            ?>
             <input type="submit" name="submit" value="Submit">
         </div>
     </form>
@@ -62,20 +66,22 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nama = $_POST["nama"];
         $email = $_POST["email"];
-        $jenis_kelamin = $_POST["jenis_kelamin"];
         $nim = $_POST["nim"];
         $prodi = $_POST["prodi"];
+        $alamat = $_POST["alamat"];
+        $no_hp = $_POST["no_hp"];
 
-        if (empty($nama) || empty($email) || empty($nim) || empty($prodi)) {
+        if (empty($nama) || empty($email) || empty($nim) || empty($prodi) || empty($alamat) || empty($no_hp)) {
             echo "<p>Harap isi semua field.</p>";
             exit;
         }else {
             echo "<p>Data yang Anda masukkan:</p>";
             echo "<p>Nama: " . $nama . "</p>";
             echo "<p>Email: " . $email . "</p>";
-            echo "<p>Jenis Kelamin: " . $jenis_kelamin . "</p>";
             echo "<p>NIM: " . $nim . "</p>";
             echo "<p>Prodi: " . $prodi . "</p>";
+            echo "<p>Alamat: " . $alamat . "</p>";
+            echo "<p>No_Hp: " . $noHp . "</p>";
         }
     }
     ?>
